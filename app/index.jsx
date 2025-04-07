@@ -1,8 +1,5 @@
-import React from 'react';
-import Home from './screens/home';
+import { Redirect } from 'expo-router';
 
-const App = () => {
-  return <Home />;
-};
-
-export default App;
+export default function Index() {
+  return <Redirect href="/(tabs)/home" />;
+}
