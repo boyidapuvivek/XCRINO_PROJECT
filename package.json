@@ -6,7 +6,11 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "lint": "eslint . --ext .js,.jsx",
+    "format": "prettier --write \"src/**/*.{js,jsx,json}\"",
+    "build": "expo build:android -t apk", 
+    "precommit": "lint-staged"
   },
   "dependencies": {
     "expo": "~52.0.43",
