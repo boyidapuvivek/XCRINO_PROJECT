@@ -1,19 +1,21 @@
 {
   "name": "xcrino_project",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "expo-router/entry",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web",
     "lint": "eslint . --ext .js,.jsx",
     "format": "prettier --write \"src/**/*.{js,jsx,json}\"",
-    "build": "expo build:android -t apk", 
+    "build": "expo build:android -t apk",
     "precommit": "lint-staged"
   },
   "dependencies": {
     "expo": "~52.0.43",
+    "expo-image": "^2.0.7",
+    "expo-linear-gradient": "^14.0.2",
+    "expo-router": "^4.0.20",
     "expo-status-bar": "~2.0.1",
     "react": "18.3.1",
     "react-native": "0.76.9"
