@@ -1,13 +1,11 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from 'react-native';
 import { homeScreen } from '../../constants/home_screen';
-import fonts from '../../constants/fonts';
 import { Images } from '../../constants/images';
 import { router } from 'expo-router';
 
 const RecentReports = () => {
   const reports = homeScreen.recentReportsData;
-  const fontsLoaded = fonts.fontsLoaded;
   const handelRouting = () => {
     router.push('/comingsoon');
   };

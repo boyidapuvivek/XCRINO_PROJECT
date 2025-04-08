@@ -1,11 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import fonts from '../../constants/fonts';
+import { Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { router } from 'expo-router';
 
 const Card = ({ img, title, bgColor, color }) => {
-  const [fontsLoaded] = fonts();
-
   const handelRouting = () => {
     if (title === 'Reports') {
       router.push('./reports');

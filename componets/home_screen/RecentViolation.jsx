@@ -1,12 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
 import { homeScreen } from '../../constants/home_screen';
-import fonts from '../../constants/fonts';
 import ReportViolationCard from './ReportViolationCard';
 import { router } from 'expo-router';
 
 const RecentViolation = () => {
-  const fontsLoaded = fonts.fontsLoaded;
   const data = homeScreen.notifications;
   const handelRouting = () => {
     router.push('/comingsoon');

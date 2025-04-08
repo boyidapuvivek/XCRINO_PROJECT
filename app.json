@@ -24,7 +24,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.vivek_react.XCRINO_PROJECT"
     },
     "web": {
       "favicon": "./assets/favicon.png"

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Image } from 'react-native';
 import Reports from '../componets/reports_screen/Reports';
-import fonts from '../constants/fonts';
 import { router } from 'expo-router';
 import { Images } from '../constants/images';
 import ComingSoon from './ComingSoon';
@@ -9,7 +8,7 @@ import { reportData } from '../constants/reports_screen';
 
 const ReportsScreen = () => {
   const [activeTab, setActiveTab] = useState('Reports');
-  const fontLoader = fonts.fontLoader;
+
   const handelRouting = () => {
     router.back('/homescreen');
   };

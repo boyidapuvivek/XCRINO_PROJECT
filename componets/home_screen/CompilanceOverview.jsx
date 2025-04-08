@@ -3,11 +3,9 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import MapView from 'react-native-maps';
 import { homeScreen } from '../../constants/home_screen';
-import fonts from '../../constants/fonts';
 import { router } from 'expo-router';
 
 const ComplianceOverview = () => {
-  const fontsLoaded = fonts.fontsLoaded;
   const handleRouting = () => {
     router.push('/comingsoon');
   };

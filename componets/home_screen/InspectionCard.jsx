@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import fonts from '../../constants/fonts';
 import ProgressBar from './ProgressBar';
 import { router } from 'expo-router';
 
@@ -18,7 +17,6 @@ const getStatusStyle = (status) => {
 };
 
 const InspectionCard = ({ img, title, subTitle, status, progress }) => {
-  const [fontsLoaded] = fonts();
   const { bgColor, textColor } = getStatusStyle(status);
   const handleRouting = () => {
     router.push('/comingsoon');

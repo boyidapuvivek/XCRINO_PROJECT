@@ -2,12 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet, TextInput, Image, TouchableOpacity } from 'react-native';
 import Star from './Star';
 import { Ionicons } from '@expo/vector-icons';
-import { useFonts } from 'expo-font';
-import fonts from '../../constants/fonts';
 
 const TopHeader = () => {
-  const [fontsLoaded] = fonts();
-
   return (
     <View style={styles.container}>
       <View style={styles.headerContainer}>

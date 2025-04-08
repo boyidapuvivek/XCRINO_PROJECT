@@ -1,10 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import fonts from '../../constants/fonts';
 import { router } from 'expo-router';
 
 const ReportVolationCard = ({ title, location, time, priority }) => {
-  const fontsLoaded = fonts.fontsLoaded;
   const handleRouting = () => {
     router.push('/comingsoon');
   };

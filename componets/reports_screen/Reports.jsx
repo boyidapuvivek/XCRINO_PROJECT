@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
-import fonts from '../../constants/fonts';
 import { Images } from '../../constants/images';
 import { router } from 'expo-router';
 
@@ -18,7 +17,6 @@ const Reports = ({
   actionText,
   images,
 }) => {
-  const fontLoader = fonts.fontLoader;
   const handleRouting = () => {
     router.push('/comingsoon');
   };
