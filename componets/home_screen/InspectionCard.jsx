@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import fonts from '../../constants/fonts';
 import ProgressBar from './ProgressBar';
+import { router } from 'expo-router';
 
 const getStatusStyle = (status) => {
   switch (status) {
@@ -19,9 +20,12 @@ const getStatusStyle = (status) => {
 const InspectionCard = ({ img, title, subTitle, status, progress }) => {
   const [fontsLoaded] = fonts();
   const { bgColor, textColor } = getStatusStyle(status);
+  const handleRouting = () => {
+    router.push('/comingsoon');
+  };
 
   return (
-    <TouchableOpacity style={styles.card}>
+    <TouchableOpacity style={styles.card} onPress={handleRouting}>
       <View style={styles.topRow}>
         <View style={styles.leftContent}>
           <Image source={img} style={styles.avatar} />
@@ -96,7 +100,7 @@ const styles = StyleSheet.create({
   statusText: {
     fontFamily: 'manrope-regular',
     fontSize: 12,
-    lineHeight: 16,
+    lineHeight: 14,
   },
   bottomRow: {
     marginTop: 5,
@@ -106,17 +110,19 @@ const styles = StyleSheet.create({
   bottom: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 5,
+    marginTop: 10,
   },
   progressLabel: {
     fontFamily: 'manrope-regular',
     fontSize: 12,
     color: '#4B5563',
+    lineHeight: 14,
   },
   dueLabel: {
     fontFamily: 'manrope-regular',
     fontSize: 12,
     color: '#FF6E40',
+    lineHeight: 14,
   },
 });
 

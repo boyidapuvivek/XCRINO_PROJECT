@@ -25,7 +25,7 @@ const RecentReports = () => {
 
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {reports.map((report, index) => (
-          <TouchableOpacity key={index} style={styles.card}>
+          <TouchableOpacity key={index} style={styles.card} onPress={handelRouting}>
             <View style={styles.statusRow}>
               <Image source={report.img} style={styles.img} />
               <View style={[styles.statusBadge, { backgroundColor: report.color }]}>

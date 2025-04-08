@@ -1,11 +1,15 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import fonts from '../../constants/fonts';
+import { router } from 'expo-router';
 
 const ReportVolationCard = ({ title, location, time, priority }) => {
   const fontsLoaded = fonts.fontsLoaded;
+  const handleRouting = () => {
+    router.push('/comingsoon');
+  };
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={handleRouting}>
       <Image
         source={require('../../assets/icons/violation.png')}
         style={{ height: 40, width: 40, marginRight: 10 }}

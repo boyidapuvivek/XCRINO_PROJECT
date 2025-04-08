@@ -3,8 +3,14 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import MapView from 'react-native-maps';
 import { homeScreen } from '../../constants/home_screen';
+import fonts from '../../constants/fonts';
+import { router } from 'expo-router';
 
 const ComplianceOverview = () => {
+  const fontsLoaded = fonts.fontsLoaded;
+  const handleRouting = () => {
+    router.push('/comingsoon');
+  };
   return (
     <View style={styles.container}>
       <View style={styles.top}>
@@ -38,7 +44,7 @@ const ComplianceOverview = () => {
             longitudeDelta: 0.01,
           }}
         />
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={handleRouting}>
           <Text style={styles.buttonText}>View Full Map</Text>
         </TouchableOpacity>
       </View>
@@ -82,13 +88,16 @@ const styles = StyleSheet.create({
   },
   fillText: {
     fontSize: 14,
-    fontWeight: 'bold',
-    color: '#111827',
+    fontFamily: 'manrope-regular',
+    lineHeight: 20,
+    color: '#000000',
   },
   circleLabel: {
     marginTop: 6,
-    fontSize: 13,
-    color: '#6B7280',
+    fontSize: 14,
+    fontFamily: 'manrope-regular',
+    lineHeight: 20,
+    color: '#4B5563',
   },
   mapContainer: {
     borderRadius: 12,
