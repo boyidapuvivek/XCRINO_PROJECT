@@ -1,40 +1,49 @@
 import React from 'react';
-import InspectionCard from './InspectionCard';
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, FlatList } from 'react-native';
 import { homeScreen } from '../../constants/home_screen';
+import fonts from '../../constants/fonts';
+import ReportViolationCard from './ReportViolationCard';
 import { router } from 'expo-router';
 
-const ActiveInspection = () => {
+const RecentViolation = () => {
+  const fontsLoaded = fonts.fontsLoaded;
+  const data = homeScreen.notifications;
   const handelRouting = () => {
     router.push('/comingsoon');
   };
-
   return (
     <View style={styles.container}>
       <View style={styles.top}>
         <View style={styles.titleContainer}>
           <View style={styles.bar} />
-          <Text style={styles.title}>Active Inspection</Text>
+          <Text style={styles.title}>Recent Violations</Text>
         </View>
         <TouchableOpacity style={styles.button} onPress={handelRouting}>
           <Text style={styles.text}>See All {'>'}</Text>
         </TouchableOpacity>
       </View>
 
-      <View style={styles.body}>
-        {homeScreen.inspectionData.map((item, index) => (
-          <InspectionCard key={index} {...item} />
-        ))}
-      </View>
+      <FlatList
+        data={data}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <ReportViolationCard
+            title={item.title}
+            location={item.location}
+            time={item.time}
+            priority={item.priority}
+          />
+        )}
+        contentContainerStyle={styles.listContent}
+        scrollEnabled={false}
+      />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
-    height: 650,
-    backgroundColor: '#FFFFFF',
+    marginVertical: 16,
     paddingHorizontal: 22,
   },
   top: {
@@ -77,6 +86,9 @@ const styles = StyleSheet.create({
     fontFamily: 'monrope-semibold',
     color: '#6F767E',
   },
+  listContent: {
+    paddingBottom: 16, // Add padding instead of the wrapping View
+  },
 });
 
-export default ActiveInspection;
+export default RecentViolation;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const ProfileScreen = () => {
+const ComingSoon = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>🚧 Coming Soon 🚧</Text>
@@ -31,4 +31,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ProfileScreen;
+export default ComingSoon;

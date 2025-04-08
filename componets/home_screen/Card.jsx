@@ -1,15 +1,26 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import fonts from '../../constants/fonts';
+import { router } from 'expo-router';
 
 const Card = ({ img, title, bgColor, color }) => {
   const [fontsLoaded] = fonts();
 
+  const handelRouting = () => {
+    if (title === 'Reports') {
+      router.push('./reports');
+    } else {
+      router.push('/comingsoon');
+    }
+  };
   return (
-    <View style={[styles.cardContainer, { backgroundColor: bgColor }]}>
+    <TouchableOpacity
+      style={[styles.cardContainer, { backgroundColor: bgColor }]}
+      onPress={handelRouting}
+    >
       <Image source={img} style={styles.img} />
       <Text style={[styles.text, { color: color }]}>{title}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

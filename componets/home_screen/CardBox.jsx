@@ -1,20 +1,20 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import Card from './Card';
-import { Images } from '../../constants/images';
+import { homeScreen } from '../../constants/home_screen';
 
-const CardBox = ({ image, title, description }) => {
+const CardBox = () => {
   return (
     <View style={styles.container}>
-      <Card
-        img={Images.icons.inspection}
-        title={'New Inspection'}
-        bgColor={'#EFF6FF'}
-        color={'#2563EB'}
-      />
-      <Card img={Images.icons.reports} title={'Reports'} bgColor={'#FAF5FF'} color={'#9333EA'} />
-      <Card img={Images.icons.warning} title={'Violations'} bgColor={'#FCF4EA'} color={'#EA580C'} />
-      <Card img={Images.icons.book} title={'Guidlines'} bgColor={'#EFFCF3'} color={'#16A34A'} />
+      {homeScreen.cardBoxData.map((item, index) => (
+        <Card
+          key={index}
+          img={item.img}
+          title={item.title}
+          bgColor={item.bgColor}
+          color={item.color}
+        />
+      ))}
     </View>
   );
 };

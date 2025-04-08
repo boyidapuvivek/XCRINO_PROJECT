@@ -4,7 +4,7 @@ export const Images = {
     warning: require('../assets/icons/warning.png'),
     reports: require('../assets/icons/reports.png'),
     inspection: require('../assets/icons/inspection.png'),
-    hospital: require('../assets/icons/hospital.png'),
+    clock: require('../assets/icons/clock.png'),
   },
   bottomnavicons: {
     home: require('../assets/icons/home.png'),

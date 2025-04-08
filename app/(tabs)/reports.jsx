@@ -1,11 +1,8 @@
-import { View, Text } from 'react-native';
+import React from 'react';
+import ReportsScreen from '../../screens/ReportsScreen';
 
 const Reports = () => {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Reports Screen</Text>
-    </View>
-  );
+  return <ReportsScreen />;
 };
 
 export default Reports;
