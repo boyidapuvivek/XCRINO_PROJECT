@@ -2,6 +2,7 @@ import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
 import { View } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 export default function Layout() {
   const [fontsLoaded] = useFonts({
@@ -15,11 +16,13 @@ export default function Layout() {
   });
   if (!fontsLoaded) return <View style={{ flex: 1, backgroundColor: '#000000' }} />;
   return (
-    <>
-      <StatusBar hidden />
-      <Stack initialRouteName="(tabs)" screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      </Stack>
-    </>
+    <SafeAreaProvider>
+      <SafeAreaView style={{ flex: 1 }} edges={['bottom', 'left', 'right']}>
+        <StatusBar hidden />
+        <Stack initialRouteName="(tabs)" screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        </Stack>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }

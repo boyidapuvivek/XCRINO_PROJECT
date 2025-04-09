@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { Images } from '../../constants/images';
 import { router } from 'expo-router';
 
@@ -20,6 +20,7 @@ const Reports = ({
   const handleRouting = () => {
     router.push('/comingsoon');
   };
+
   return (
     <View style={styles.card}>
       <View style={styles.row}>
@@ -27,7 +28,7 @@ const Reports = ({
           <Image source={img} style={{ height: 20, width: 20 }} />
           <View>
             <Text style={styles.label}>{label}</Text>
-            <Text styles={styles.id}>{id}</Text>
+            <Text style={styles.id}>{id}</Text>
           </View>
         </View>
         <View style={[styles.status, { backgroundColor: statusBgColor }]}>
@@ -79,16 +80,11 @@ const Reports = ({
 const styles = StyleSheet.create({
   card: {
     backgroundColor: '#fff',
-    marginVertical: 16,
+    marginVertical: 12,
     padding: 16,
     borderRadius: 12,
     borderColor: '#E5E7EB',
     borderWidth: 1,
-  },
-  type: {
-    fontSize: 13,
-    color: '#6B7280',
-    marginBottom: 4,
   },
   row: {
     flexDirection: 'row',
@@ -102,7 +98,7 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   label: {
-    fontWeight: 14,
+    fontSize: 14,
     fontFamily: 'manrope-regular',
     color: '#4B5563',
   },
@@ -114,7 +110,7 @@ const styles = StyleSheet.create({
   status: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 2,
+    gap: 4,
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderRadius: 20,
@@ -160,6 +156,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 8,
+    backgroundColor: '#F9FAFB',
   },
   boxText: {
     fontSize: 14,
@@ -169,11 +166,11 @@ const styles = StyleSheet.create({
   images: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 8,
+    justifyContent: 'space-between',
     marginTop: 8,
   },
   image: {
-    width: '47%',
+    width: '48%',
     height: 100,
     borderRadius: 8,
     marginBottom: 8,
@@ -182,10 +179,13 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#4B5563',
     marginBottom: 12,
+    fontFamily: 'manrope-regular',
   },
   buttons: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     justifyContent: 'space-between',
+    gap: 12,
   },
   primaryBtn: {
     flexDirection: 'row',
@@ -193,9 +193,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#2563EB',
     paddingVertical: 8,
-    gap: 20,
     borderRadius: 8,
-    minWidth: 240,
+    flex: 1,
+    gap: 8,
   },
   primaryText: {
     color: '#fff',
@@ -205,11 +205,13 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#E5E7EB',
     flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     paddingVertical: 10,
-    gap: '10',
     paddingHorizontal: 16,
-    minWidth: 120,
     borderRadius: 8,
+    flexShrink: 1,
+    gap: 8,
   },
   secondaryText: {
     color: '#374151',

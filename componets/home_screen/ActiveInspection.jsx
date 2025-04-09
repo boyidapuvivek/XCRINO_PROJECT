@@ -33,17 +33,15 @@ const ActiveInspection = () => {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: 650,
     backgroundColor: '#FFFFFF',
     paddingHorizontal: 22,
+    paddingTop: 10,
   },
   top: {
-    display: 'flex',
-    height: 36,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginVertical: 20,
+    marginBottom: 10,
   },
   bar: {
     width: 4,
@@ -52,7 +50,6 @@ const styles = StyleSheet.create({
     borderRadius: 2,
   },
   titleContainer: {
-    height: 36,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
@@ -65,7 +62,7 @@ const styles = StyleSheet.create({
   },
   button: {
     height: 36,
-    width: 82,
+    paddingHorizontal: 12,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1.5,
@@ -74,7 +71,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 12,
-    fontFamily: 'monrope-semibold',
+    fontFamily: 'manrope-semibold',
     color: '#6F767E',
   },
 });

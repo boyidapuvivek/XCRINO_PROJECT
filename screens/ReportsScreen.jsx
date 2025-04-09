@@ -12,6 +12,7 @@ const ReportsScreen = () => {
   const handelRouting = () => {
     router.back('/homescreen');
   };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -41,7 +42,7 @@ const ReportsScreen = () => {
         ))}
       </View>
 
-      <ScrollView contentContainerStyle={{ paddingHorizontal: 16 }}>
+      <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
         {activeTab === 'Reports' ? (
           <>
             {reportData.map((report, index) => (
@@ -49,9 +50,7 @@ const ReportsScreen = () => {
             ))}
           </>
         ) : (
-          <View
-            style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: 100 }}
-          >
+          <View style={styles.comingSoonContainer}>
             <ComingSoon />
           </View>
         )}
@@ -74,6 +73,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     textAlign: 'center',
     alignItems: 'center',
+    gap: 8,
   },
   title: {
     fontSize: 16,
@@ -84,10 +84,6 @@ const styles = StyleSheet.create({
   iconGroup: {
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  icon: {
-    fontSize: 16,
-    color: '#374151',
   },
   tabs: {
     flexDirection: 'row',
@@ -111,6 +107,16 @@ const styles = StyleSheet.create({
   },
   activeTabText: {
     color: '#1A237E',
+  },
+  scrollContent: {
+    paddingHorizontal: 16,
+    paddingBottom: 32,
+    flexGrow: 1,
+  },
+  comingSoonContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 100,
   },
 });
 

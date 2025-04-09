@@ -22,7 +22,7 @@ export default function CustomTabBar({ state, descriptors, navigation }) {
               style={[styles.icon, { tintColor: isFocused ? '#007AFF' : '#888' }]}
               resizeMode="contain"
             />
-            <Text style={{ color: isFocused ? '#007AFF' : '#888', fontSize: 12 }}>{label}</Text>
+            <Text style={{ color: isFocused ? '#007AFF' : '#888', fontSize: 10 }}>{label}</Text>
           </TouchableOpacity>
         );
       })}

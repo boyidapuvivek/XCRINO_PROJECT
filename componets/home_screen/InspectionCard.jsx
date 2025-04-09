@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import ProgressBar from './ProgressBar';
 import { router } from 'expo-router';
 
 const getStatusStyle = (status) => {
@@ -16,6 +15,14 @@ const getStatusStyle = (status) => {
   }
 };
 
+const ProgressBar = ({ progress }) => {
+  return (
+    <View style={styles.progressContainer}>
+      <View style={[styles.progressFill, { width: `${progress * 100}%` }]} />
+    </View>
+  );
+};
+
 const InspectionCard = ({ img, title, subTitle, status, progress }) => {
   const { bgColor, textColor } = getStatusStyle(status);
   const handleRouting = () => {
@@ -26,10 +33,16 @@ const InspectionCard = ({ img, title, subTitle, status, progress }) => {
     <TouchableOpacity style={styles.card} onPress={handleRouting}>
       <View style={styles.topRow}>
         <View style={styles.leftContent}>
-          <Image source={img} style={styles.avatar} />
+          <View style={styles.iconWrapper}>
+            <Image source={img} style={styles.avatar} />
+          </View>
           <View style={styles.textSection}>
-            <Text style={styles.title}>{title}</Text>
-            <Text style={styles.subTitle}>{subTitle}</Text>
+            <Text style={styles.title} numberOfLines={1}>
+              {title}
+            </Text>
+            <Text style={styles.subTitle} numberOfLines={1}>
+              {subTitle}
+            </Text>
           </View>
         </View>
         <View style={[styles.statusBadge, { backgroundColor: bgColor }]}>
@@ -39,8 +52,8 @@ const InspectionCard = ({ img, title, subTitle, status, progress }) => {
 
       <View style={styles.bottomRow}>
         <ProgressBar progress={progress} />
-        <View style={styles.bottom}>
-          <Text style={styles.progressLabel}>{Math.round(progress * 100)}% Complete</Text>
+        <View style={styles.bottomLabels}>
+          <Text style={styles.progressLabel}>{Math.round(progress * 100)} % Complete</Text>
           <Text style={styles.dueLabel}>Due in 2 days</Text>
         </View>
       </View>
@@ -54,7 +67,7 @@ const styles = StyleSheet.create({
     padding: 16,
     marginBottom: 16,
     backgroundColor: '#FFFFFF',
-    borderRadius: 12,
+    borderRadius: 16,
     borderWidth: 1,
     borderColor: '#E5E7EB',
   },
@@ -62,16 +75,25 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
+    marginBottom: 14,
   },
   leftContent: {
     flexDirection: 'row',
-    alignItems: 'center',
-    gap: 10,
+    alignItems: 'flex-start',
     flex: 1,
   },
-  avatar: {
+  iconWrapper: {
     width: 40,
     height: 40,
+    backgroundColor: '#E0EDFF',
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 10,
+  },
+  avatar: {
+    width: 24,
+    height: 24,
     resizeMode: 'contain',
   },
   textSection: {
@@ -80,6 +102,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: 'manrope-semibold',
     fontSize: 16,
+    lineHeight: 20,
     color: '#111827',
   },
   subTitle: {
@@ -89,38 +112,43 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   statusBadge: {
-    textAlign: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 14,
-    paddingVertical: 4,
+    paddingHorizontal: '4%',
+    paddingVertical: '1%',
     borderRadius: 50,
   },
   statusText: {
     fontFamily: 'manrope-regular',
-    fontSize: 12,
-    lineHeight: 14,
+    fontSize: 10,
   },
   bottomRow: {
-    marginTop: 5,
-    width: 320,
-    alignSelf: 'flex-end',
+    marginTop: 16,
+    gap: 6,
   },
-  bottom: {
+  progressContainer: {
+    height: 8,
+    backgroundColor: '#E5E7EB',
+    borderRadius: 8,
+    overflow: 'hidden',
+  },
+  progressFill: {
+    height: '100%',
+    backgroundColor: '#4CAF50',
+    borderRadius: 8,
+  },
+  bottomLabels: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 10,
+    marginTop: 8,
   },
   progressLabel: {
     fontFamily: 'manrope-regular',
     fontSize: 12,
     color: '#4B5563',
-    lineHeight: 14,
   },
   dueLabel: {
     fontFamily: 'manrope-regular',
     fontSize: 12,
     color: '#FF6E40',
-    lineHeight: 14,
   },
 });
 

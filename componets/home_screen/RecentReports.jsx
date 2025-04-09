@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
   },
   card: {
     width: 200,
-    height: 120,
+    // height: 120,
     marginRight: 12,
     padding: 12,
     backgroundColor: '#FFFFFF',
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
   statusText: {
     fontSize: 12,
     fontFamily: 'manrope-regular',
-    lineHeight: 12,
+    lineHeight: 16,
   },
   reportTitle: {
     fontSize: 16,

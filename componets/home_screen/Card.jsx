@@ -23,19 +23,17 @@ const Card = ({ img, title, bgColor, color }) => {
 
 const styles = StyleSheet.create({
   cardContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    height: '50%',
     width: '45%',
-    paddingLeft: 10,
-    marginVertical: 14,
-    marginHorizontal: 10,
+    aspectRatio: 1.5,
+    padding: 10,
+    margin: 8,
     justifyContent: 'center',
     gap: 12,
   },
   img: {
     height: 24,
     width: 24,
+    resizeMode: 'contain',
   },
   text: {
     fontFamily: 'manrope-semibold',

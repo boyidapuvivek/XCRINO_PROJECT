@@ -1,18 +1,29 @@
 import React from 'react';
-import { View, Text, StyleSheet, TextInput, Image, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  Image,
+  TouchableOpacity,
+  useWindowDimensions,
+} from 'react-native';
 import Star from './Star';
 import { Ionicons } from '@expo/vector-icons';
 
 const TopHeader = () => {
+  const { width } = useWindowDimensions();
+
   return (
     <View style={styles.container}>
-      <View style={styles.headerContainer}>
+      <View style={[styles.headerContainer, { width }]}>
         <View style={styles.starsContainer}>
           <Star size={50} style={{ position: 'absolute', top: '120%', left: '1%' }} />
           <Star size={30} style={{ position: 'absolute', top: '92%', right: '2%' }} />
           <Star size={25} style={{ position: 'absolute', top: '20%', left: '25%' }} />
         </View>
-        <View style={styles.profileRow}>
+
+        <View style={[styles.profileRow, { width: width * 0.9 }]}>
           <Image source={require('../../assets/profile.png')} style={styles.profileImage} />
           <View style={styles.textContainer}>
             <Text style={styles.headText}>Welcome Back</Text>
@@ -29,12 +40,16 @@ const TopHeader = () => {
           </TouchableOpacity>
         </View>
 
-        <View style={styles.searchBox}>
-          <TextInput
-            placeholder="Search by Address or Permit No."
-            placeholderTextColor="#999"
-            style={styles.searchInput}
-          />
+        <View style={[styles.searchBox, { width: width * 0.9 }]}>
+          <View style={styles.searchInputContainer}>
+            <TextInput
+              placeholder="Search by Address or Permit No."
+              placeholderTextColor="#999"
+              style={styles.searchInput}
+              numberOfLines={1}
+              ellipsizeMode="tail"
+            />
+          </View>
           <TouchableOpacity style={styles.searchIcon}>
             <Ionicons name="search" size={20} color="#FFFFFF" />
           </TouchableOpacity>
@@ -65,25 +80,15 @@ const styles = StyleSheet.create({
     height: '100%',
     zIndex: 0,
   },
-  star: {
-    position: 'absolute',
-    width: 12,
-    height: 12,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    transform: [{ rotate: '45deg' }],
-    borderRadius: 2,
-  },
-
   profileRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    minWidth: 350,
     height: 50,
   },
   profileImage: {
     width: 45,
     height: 45,
-    borderRadius: 21,
+    borderRadius: 22.5,
     marginRight: 12,
   },
   textContainer: {
@@ -109,6 +114,8 @@ const styles = StyleSheet.create({
     height: 45,
     width: 45,
     zIndex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   notificationDot: {
     position: 'absolute',
@@ -117,32 +124,35 @@ const styles = StyleSheet.create({
     width: 10,
     height: 10,
     backgroundColor: '#ED544E',
-    borderRadius: 4,
+    borderRadius: 5,
     zIndex: 3,
   },
   searchBox: {
     flexDirection: 'row',
     minHeight: 57,
-    width: 350,
     backgroundColor: '#FBFBFB',
     borderRadius: 12,
     borderWidth: 1.5,
     borderColor: '#EAEAFF',
     alignItems: 'center',
-    textAlign: 'center',
     paddingHorizontal: 12,
     marginTop: 50,
   },
-  searchInput: {
+  searchInputContainer: {
     flex: 1,
-    height: 44,
+    justifyContent: 'center',
+  },
+  searchInput: {
     fontSize: 16,
     color: '#333',
+    paddingVertical: 0,
+    paddingHorizontal: 8,
   },
   searchIcon: {
     backgroundColor: '#6759FF',
     padding: 10,
     borderRadius: 10,
+    marginLeft: 8,
   },
 });
 

@@ -5,16 +5,25 @@ import MapView from 'react-native-maps';
 import { homeScreen } from '../../constants/home_screen';
 import { router } from 'expo-router';
 
+const initialRegion = {
+  latitude: 28.1041,
+  longitude: 76.5742,
+  latitudeDelta: 0.01,
+  longitudeDelta: 0.01,
+};
+
 const ComplianceOverview = () => {
   const handleRouting = () => {
     router.push('/comingsoon');
   };
+
   return (
     <View style={styles.container}>
       <View style={styles.top}>
         <View style={styles.bar} />
         <Text style={styles.header}>Compliance Overview</Text>
       </View>
+
       <View style={styles.progressRow}>
         {homeScreen.data.map((item, index) => (
           <View key={index} style={styles.circleItem}>
@@ -25,7 +34,7 @@ const ComplianceOverview = () => {
               tintColor={item.tintColor}
               backgroundColor="#E5E7EB"
             >
-              {(fill) => <Text style={styles.fillText}>{`${item.fill}%`}</Text>}
+              {() => <Text style={styles.fillText}>{`${item.fill}%`}</Text>}
             </AnimatedCircularProgress>
             <Text style={styles.circleLabel}>{item.title}</Text>
           </View>
@@ -33,15 +42,7 @@ const ComplianceOverview = () => {
       </View>
 
       <View style={styles.mapContainer}>
-        <MapView
-          style={styles.map}
-          initialRegion={{
-            latitude: 28.1041,
-            longitude: 76.5742,
-            latitudeDelta: 0.01,
-            longitudeDelta: 0.01,
-          }}
-        />
+        <MapView style={styles.map} initialRegion={initialRegion} showsUserLocation={false} />
         <TouchableOpacity style={styles.button} onPress={handleRouting}>
           <Text style={styles.buttonText}>View Full Map</Text>
         </TouchableOpacity>
@@ -57,7 +58,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   top: {
-    display: 'flex',
     height: 36,
     flexDirection: 'row',
     alignItems: 'center',
@@ -85,16 +85,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   fillText: {
-    fontSize: 14,
+    fontSize: 12,
     fontFamily: 'manrope-regular',
-    lineHeight: 20,
-    color: '#000000',
+    color: '#000',
   },
   circleLabel: {
     marginTop: 6,
-    fontSize: 14,
+    fontSize: 12,
     fontFamily: 'manrope-regular',
-    lineHeight: 20,
     color: '#4B5563',
   },
   mapContainer: {
