@@ -13,9 +13,7 @@ export default function Layout() {
     'manrope-extrabold': require('../assets/fonts/Manrope/Manrope-ExtraBold.ttf'),
     'manrope-extralight': require('../assets/fonts/Manrope/Manrope-ExtraLight.ttf'),
   });
-
-  if (!fontsLoaded) return <View style={{ flex: 1, backgroundColor: '#fff' }} />; // or a splash screen
-
+  if (!fontsLoaded) return <View style={{ flex: 1, backgroundColor: '#000000' }} />;
   return (
     <>
       <StatusBar hidden />
